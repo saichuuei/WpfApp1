@@ -1,0 +1,99 @@
+﻿<Window x:Class="Enigma_Machine.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        Title="Enigma Machine" Height="600" Width="1000" SizeToContent="WidthAndHeight" KeyDown="Window_KeyDown"
+        Background="#FFFAF3E0" FontFamily="Segoe UI" FontSize="14">
+    <Window.Resources>
+        <!-- Define styles for consistent UI elements -->
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="#FF2E3440"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="#FFB8E0D2"/>
+            <Setter Property="BorderBrush" Value="#FF95C8D8"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="#FFE0F2F7"/>
+            <Setter Property="BorderBrush" Value="#FF95C8D8"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#FF95C8D8"/>
+            <Setter Property="BorderBrush" Value="#FF7AA9C8"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Foreground" Value="#FF2E3440"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Control Section -->
+        <Label Content="Control" Grid.Row="0" Grid.Column="0"/>
+        <Label x:Name="lblControlRing" Content="Label" Grid.Row="0" Grid.Column="1"/>
+
+        <!-- Rotor Settings -->
+        <Label Content="Ring 1 (H)" Grid.Row="1" Grid.Column="0"/>
+        <Label x:Name="lblRing1" Content="Label" Grid.Row="1" Grid.Column="1"/>
+        <Label Content="Ring 2 (M)" Grid.Row="2" Grid.Column="0"/>
+        <Label x:Name="lblRing2" Content="Label" Grid.Row="2" Grid.Column="1"/>
+        <Label Content="Ring 3 (S)" Grid.Row="3" Grid.Column="0"/>
+        <Label x:Name="lblRing3" Content="Label" Grid.Row="3" Grid.Column="1"/>
+
+        <!-- Input and Encrypted Messages -->
+        <Label Content="Input Message:" Grid.Row="4" Grid.Column="0"/>
+        <Label x:Name="lblInput" Content="Input" Grid.Row="4" Grid.Column="1"/>
+        <Label Content="Encrypted Message:" Grid.Row="5" Grid.Column="0"/>
+        <Label x:Name="lblEncrpyt" Content="Encrypt" Grid.Row="5" Grid.Column="1"/>
+        <Label Content="Encrypted Message with Mirroring:" Grid.Row="6" Grid.Column="0"/>
+        <Label x:Name="lblEncrpytMirror" Content="Mirror" Grid.Row="6" Grid.Column="1"/>
+
+        <!-- Plugboard Section -->
+        <Label Content="Plugboard (AB CD EF):" Grid.Row="7" Grid.Column="0"/>
+        <TextBox x:Name="txtPlugboard" Grid.Row="7" Grid.Column="1" TextChanged="txtPlugboard_TextChanged"/>
+        <Button x:Name="btnSetPlugboard" Content="Set Plugboard" Grid.Row="7" Grid.Column="2" Click="btnSetPlugboard_Click"/>
+
+        <!-- Rotor Button -->
+        <Button x:Name="btnRotor" Content="Rotor On" Grid.Row="8" Grid.Column="0" Click="btnRotor_Click"/>
+
+        <!-- Rotor Initialization TextBoxes -->
+        <TextBox x:Name="txtBRing1Init" Grid.Row="1" Grid.Column="2" Text="0 - 25" GotFocus="txtBRing1Init_GotFocus"/>
+        <TextBox x:Name="txtBRing2Init" Grid.Row="2" Grid.Column="2" Text="0 - 25" GotFocus="txtBRing2Init_GotFocus"/>
+        <TextBox x:Name="txtBRing3Init" Grid.Row="3" Grid.Column="2" Text="0 - 25" GotFocus="txtBRing3Init_GotFocus"/>
+    </Grid>
+</Window>
+
+
+
